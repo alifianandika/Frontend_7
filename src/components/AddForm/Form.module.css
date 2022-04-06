@@ -1,0 +1,109 @@
+/* Small Screen */
+.container {
+    margin: 1rem ;
+    text-align: center;
+    
+    
+  }
+  
+.Form__title{
+    color: blue;
+    text-align: center;
+    color: #f72585;
+    font-size: 2rem;
+    margin-top: 1rem;
+    
+}
+
+.Form__button{
+    padding: 0.8rem 1.5rem;
+    border-radius: 10px;
+    border: none;
+    background-color: #f72585;
+    color: white;
+    margin-bottom: 1rem;
+    margin-top: 30px;
+
+
+}
+
+
+.Form__image{
+    max-width: 250px;
+    border-radius: 25px;
+    justify-content: center;
+    margin-top: 15%;
+
+}
+
+
+.Form__right {
+    position: relative;
+    /* gap: 30px; */
+    top: 60px;
+    height: 350px;
+    width: 400px;
+    padding: 40px;
+    justify-self: flex-end;
+   
+}
+
+
+
+.Form__right .Form__control {
+    margin: 30px 0;
+    margin-bottom: 1rem;
+}
+
+.Form__inputone input[type='text'],
+.Form__inputtwo input[type='date'],
+.Form__inputthree input[type='text'],
+.Form__inputfour input[type='text']
+{
+    border: 0;
+    width: 100%;
+    padding: 2px;
+    font-size: 20px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.Form__right input:focus {
+    outline: none;
+    width: 50px;
+}
+
+
+
+
+/* Large Screen */
+@media (min-width: 992px) {
+    .container{
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+
+    .Form{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        
+    }
+
+
+    .Form__left{
+        flex-basis: 40%;
+        padding: 25px;
+        justify-content: center;
+    }
+
+    .Form__right{
+        flex-basis: 50%;
+       
+       
+    }
+}
+

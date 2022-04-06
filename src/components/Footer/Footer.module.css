@@ -1,0 +1,16 @@
+/* Small Screen */
+
+.container {
+    background-color: #F72585;
+    padding:  1rem;
+    color: white;
+    text-align: center;
+    margin-top: 250px;
+}
+
+
+.footer__title{
+    margin-bottom: 1rem;
+}
+
+
