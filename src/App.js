@@ -5,8 +5,18 @@
 // import Main from './components/Main';
 // import Footer from './components/Footer';
 
+
+
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Count from "./components/Count";
 import Counter from "./components/Counter/Counter";
 import Home from "./pages/Home";
+import CreateMovie from "./pages/movie/Create";
+
+
+
+
+
 
 function App() {
   return (
@@ -37,7 +47,27 @@ function App() {
 
 
     <div>
-      <Home />
+        
+       {/* <Count /> */}
+    
+    <BrowserRouter>
+        <Home /> 
+       
+ 
+    
+    </BrowserRouter>
+
+  
+
+    {/* <Routes>
+      <Route path="/" element={<Home />}/>
+    </Routes>
+          */}
+  
+  
+       
+            
+        
         {/* <Counter /> */}
     </div>
 

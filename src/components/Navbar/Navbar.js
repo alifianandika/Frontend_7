@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./Navbar.module.css";
 
 
@@ -12,11 +13,21 @@ function Navbar(){
 
                    <div>
                        <ul className={styles.navbar__list}>
-                           <li className={styles.navbar__item}>Home</li>
-                           <li className={styles.navbar__item}>Add Movie</li>
-                           <li className={styles.navbar__item}>Popular</li>
-                           <li className={styles.navbar__item}>Now Playing</li>
-                           <li className={styles.navbar__item}>Top Rated</li>
+                           <li className={styles.navbar__item}>
+                                <Link className={styles.navbar__link} to="/home">Home</Link>
+                           </li>
+                           <li className={styles.navbar__item}>
+                               <Link className={styles.navbar__link} to="/pages/movie/create">Add Movie</Link>
+                           </li>
+                           <li className={styles.navbar__item}>
+                                <Link className={styles.navbar__link} to="/pages/movie/popular">Popular</Link>
+                           </li>
+                           <li className={styles.navbar__item}>
+                                <Link className={styles.navbar__link} to="/pages/movie/now">Now Playing</Link>
+                            </li>
+                           <li className={styles.navbar__item}>
+                                <Link className={styles.navbar__link} to="/pages/movie/top">Top Rated</Link>
+                            </li>
                        </ul>
                    </div>
                </nav>

@@ -4,9 +4,14 @@
     background-color: #F72585;
     padding: 1rem;
     color: white;
+    margin-top: 50px;
 
 }
 
+.navbar__link {
+    color: white;
+    text-decoration: none;
+}
 
 .navbar__brand {
     margin-bottom: 1rem;

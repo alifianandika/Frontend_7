@@ -15,13 +15,120 @@ function Form(props){
     const [link, setLink] = useState("");
     const [select, setSelect] = useState("");
 
-    //state buat pesan error
+  
 
-    //rendering error
-    const [isTitleError, setIsTitleError] = useState("");
-    const [isDateError, setIsDateError] = useState("");
-    const [isLinkError, setIsLinkError] = useState("");
-    const [isSelectError, setIsSelectError] = useState("");
+    // const {title, date, link, select} = formData;
+
+    // //membuat objek
+    // const [formData, setFormData] = useState({
+    //     title: "",
+    //     date: "",
+    //     link: "",
+    //     select: "",
+
+    // });
+
+
+    //state membentuk setFormData
+
+    //fungsi handleChange
+    // function handleChange(e){
+    //    const { name, value } = e.target;
+
+    //   setFormData({
+    //       ...formData,
+    //       [name] : value,
+    //   });
+    // }
+
+
+    //state buat pesan error
+     //rendering error
+     const [isTitleError, setIsTitleError] = useState("");
+     const [isDateError, setIsDateError] = useState("");
+     const [isLinkError, setIsLinkError] = useState("");
+     const [isSelectError, setIsSelectError] = useState("");
+
+    // const {isTitleError, isDateError, isLinkError, isSelectError} = props;
+
+
+
+    /**
+     * to do tugas #8
+     * buat handle error
+     */
+    const [Notif, NotifErr]  = useState({
+        //memberi objek yang berisi boolean 
+        isTitleError: (false),
+        isDateError: (false),
+        isLinkError: (false),
+        isSelectError: (false),
+
+    })
+     
+    //handle eror tugas 
+    /**
+     * 
+     * @returns 
+     * pembagian usestate Notif & NotifErr
+     */
+    function handleErr(){
+        if(title === ""){
+                NotifErr({
+                    ...Notif,
+                    setIsTitleError : (true),
+                });
+                    return false;
+
+                }
+                // jika date kosong, set eror jadi true
+                else if(date === ""){
+                    NotifErr({
+                        ...Notif,
+                        setIsDateError : (true),
+                });
+                    return false;
+                }
+                else if (link === ""){
+                    NotifErr({
+                        ...Notif,
+                        setIsLinkError : (true),
+                });
+                    return false;
+                }
+                else if (select === ""){
+                    NotifErr({
+                        ...Notif,
+                        setIsSelectError : (true),
+                });
+                    return false;
+                }
+                else {
+                    NotifErr({
+                        //tetap beri boolean dan useStatenya
+                        ...Notif,
+                        setIsTitleError: (false),
+                        setIsDateError: (false),
+                        setIsLinkError: (false),
+                        setIsSelectError: (false),
+                       
+                });
+                   
+                    return true;
+                }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     //buat fungis hadleTitle
@@ -49,25 +156,34 @@ function Form(props){
         setSelect(e.target.value);
     }
 
+
+
     function handleSubmit(e){
         //cegah form agar tidak direfresh
         e.preventDefault();
+
+        // validasi() && addMovie();
 
         // console.log("form submit");
 
         //handle validasi rendering
         if(title === ""){
             setIsTitleError(true);
+            // setIsDateError(false);
         }
         // jika date kosong, set eror jadi true
         else if(date === ""){
             setIsDateError(true);
+            // setIsLinkError(false);
+            // setIsLinkError(true);
         }
         else if (link === ""){
             setIsLinkError(true);
+            // setIsSelectError(false);
         }
         else if (select === ""){
             setIsSelectError(true);
+          
         }
 
         //jika tidak, tambah data
@@ -92,9 +208,57 @@ function Form(props){
             setIsDateError(false);
             setIsLinkError(false);
             setIsSelectError(false);
+
+
+           
         }
 
-        
+        // function validasi(){
+        //     if(title === ""){
+        //         setIsTitleError(true);
+        //         return false;
+        //     }
+        //     // jika date kosong, set eror jadi true
+        //     else if(date === ""){
+        //         setIsDateError(true);
+        //         return false;
+        //     }
+        //     else if (link === ""){
+        //         setIsLinkError(true);
+        //         return false;
+        //     }
+        //     else if (select === ""){
+        //         setIsSelectError(true);
+        //         return false;
+        //     }
+        //     else {
+        //         setIsTitleError(false);
+        //         setIsDateError(false);
+        //         setIsLinkError(false);
+        //         setIsSelectError(false);
+                    // setIsLinkError(false);
+        //         return true;
+        //     }
+        // }
+
+
+        // function addMovie(){
+        //     const movie = {
+        //         id : nanoid(),
+        //         title: title,
+        //         year: date,
+        //         link : link,
+        //         select : select,
+        //         type: "Movie",
+        //         poster: "https://picsum.photos/300/400",
+        //     };
+    
+        //     // console.log(movie);
+    
+        //     setMovies([...movies, movie]);
+
+
+        // }
 
 
         
@@ -122,9 +286,11 @@ function Form(props){
                         <div className={styles.Form__control}>
                             <p htmlFor="title">Title</p>
                             <input className={styles.Form__inputone} type="text" 
-                            value={title} 
-                            onChange={handleTitle}
-                            
+                            value={title} name="title" id="title"
+                            // onChange={handleTitle}
+                            // onChange={handleChange}
+
+                            onChange={handleErr}
                             />
 
                             {/* { isTitleError ?  <p>* Title Wajin Diisi</p> : ""} */}
@@ -138,9 +304,11 @@ function Form(props){
                         <div className={styles.Form__control}>
                             <p>Year</p>
                             <input className={styles.Form__inputtwo} type="date" 
-                            value={date}   
-                            onChange={handleDate}
-                            
+                            value={date}   name="date" id="date"
+                            // onChange={handleDate}
+                            // onChange={handleChange}
+
+                            onChange={handleErr}
                             />
 
                             {/* { isDateError ? <p>* Date Wajin Diisi</p> : ""} */}
@@ -159,9 +327,11 @@ function Form(props){
                         <div className={styles.Form__control}>
                             <p>Link Gambar</p>
                             <input className={styles.Form__inputhree} type="text" 
-                            value={link}   
-                            onChange={handleLink}
-                            
+                            value={link}   name="link" id="link"
+                            // onChange={handleLink}
+                            // onChange={handleChange}
+
+                            onChange={handleErr}
                             />
 
                             {/* { isDateError ? <p>* Date Wajin Diisi</p> : ""} */}
@@ -178,7 +348,12 @@ function Form(props){
 
                         <div className={styles.Form__control}>
                             <p>Select Movie</p>
-                            <select name="select" id="" onChange={handleSelect} value={select}>
+                            <select name="select"  
+                            // onChange={handleSelect} 
+                            //  onChange={handleChange} 
+
+                            onChange={handleErr}
+                             value={select}  id="select">
                                 <option value=""></option>
                                 <option value="Horor">Horor</option>
                                 <option value="Romance">Romance</option>
